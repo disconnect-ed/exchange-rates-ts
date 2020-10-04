@@ -1,20 +1,19 @@
 import React, {useEffect} from 'react';
 import './App.css';
-import {exchangeRatesApi} from "./api/api";
+import {getDynamicData} from "./redux/actions/rates-action";
+import {useDispatch} from "react-redux";
+
 
 function App() {
-  useEffect(() => {
-    exchangeRatesApi.getDynamics().then(
-        resp => {
-          console.log(resp)
-        }
-    )
-  }, [])
-  return (
-    <div className="App">
+    const dispatch = useDispatch()
+    useEffect(() => {
+        dispatch(getDynamicData(145, '2020-10-1', '2020-10-4'))
+    }, [])
+    return (
+        <div className="App">
 
-    </div>
-  );
+        </div>
+    );
 }
 
 export default App;

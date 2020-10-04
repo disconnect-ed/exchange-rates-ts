@@ -1,3 +1,4 @@
+
 export type dynamicsDataApi = {
     status: 200
     statusText: "OK"
@@ -11,3 +12,4 @@ export type dynamicsDataItem = {
     Cur_OfficialRate: number
     Date: string
 }
+
