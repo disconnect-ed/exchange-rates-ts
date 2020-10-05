@@ -1,12 +1,16 @@
 import axios from "axios";
-import {dynamicsDataApi} from "../types/types";
 
-const dynamicsBaseUrl: string = 'https://www.nbrb.by/API/ExRates/Rates/Dynamics/'
+const baseUrl: string = 'https://www.nbrb.by/api/exrates/'
 
 export const exchangeRatesApi = {
     getDynamics(id: number, start: string, end: string) {
         return (
-            axios.get(`${dynamicsBaseUrl}${id}?startdate=${start}&enddate=${end}`)
+            axios.get(`${baseUrl}Rates/Dynamics/${id}?startdate=${start}&enddate=${end}`)
+        )
+    },
+    getRatesList() {
+        return (
+            axios.get(`${baseUrl}currencies`)
         )
     }
 }
