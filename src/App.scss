@@ -1,1 +1,45 @@
 @import '~antd/dist/antd.css';
+
+.app {
+  width: 100%;
+  &-content {
+    width: 100%;
+    h2 {
+      text-transform: uppercase;
+      text-align: center;
+    }
+  }
+}
+
+.grid {
+  width: 100%;
+  display: flex;
+  margin-top: 50px;
+  justify-content: center;
+  &-main {
+    width: 80%;
+  }
+}
+
+.menu {
+  &-toggle {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    cursor: pointer;
+    display: block;
+    border: none;
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+    color: #008FFB;
+    opacity: 0.3;
+    transition: all 0.3s ease;
+    &:hover {
+      opacity: 1;
+    }
+    &:focus {
+      outline: none;
+    }
+  }
+}

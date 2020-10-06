@@ -1,10 +1,12 @@
-import {dynamicsData, listData} from "../../types/types";
+import {dynamicsData, listData, listDataItem} from "../../types/types";
 import {ActionsType} from "../actions/rates-action";
 
 
 const initialState = {
     dynamicsData: null as dynamicsData | null,
-    listData: null as listData | null
+    listData: null as listData | null,
+    currentRate: null as listDataItem | null,
+    isLoading: true
 }
 
 const ratesReducer = (state = initialState, action: ActionsType) => {
@@ -18,6 +20,16 @@ const ratesReducer = (state = initialState, action: ActionsType) => {
             return {
                 ...state,
                 listData: action.data
+            }
+        case 'SET_CURRENT_RATE':
+            return {
+                ...state,
+                currentRate: action.data
+            }
+        case 'IS_LOADING':
+            return {
+                ...state,
+                isLoading: action.bool
             }
         default:
             return state
