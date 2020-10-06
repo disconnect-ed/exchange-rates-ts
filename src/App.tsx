@@ -1,8 +1,10 @@
 import React, {useEffect, FC} from 'react';
-import './App.css';
+import './App.scss';
 import {getDynamicData, getListData} from "./redux/actions/rates-action";
 import {useDispatch} from "react-redux";
 import {GridContainer} from "./components/Grid/GridContainer";
+import {MenuContainer} from "./components/Menu/MenuContainer";
+import { Layout } from 'antd';
 
 
 const App: FC = () => {
@@ -13,7 +15,10 @@ const App: FC = () => {
     }, [])
     return (
         <div className="App">
+            <Layout style={{ minHeight: '100vh' }}>
+            <MenuContainer/>
             <GridContainer/>
+            </Layout>
         </div>
     );
 }
