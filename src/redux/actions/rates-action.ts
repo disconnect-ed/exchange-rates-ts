@@ -7,10 +7,10 @@ export const actions = {
     setDynamicData: (data: dynamicsData) => ({type: 'SET_DYNAMICS_DATA', data} as const),
     setListData: (data: listData) => ({type: 'SET_LIST_DATA', data} as const),
     setCurrentRate: (data: listDataItem) => ({type: 'SET_CURRENT_RATE', data} as const),
-    isLoading: (bool: boolean) => ({type: 'IS_LOADING', bool} as const)
+    isLoading: (bool: boolean) => ({type: 'IS_LOADING', bool} as const),
 }
 
-export const getDynamicData = (id: number = 145, start: string = '2020-9-10', end: string = '2020-9-20') => {
+export const getDynamicData = (id: number, start: string, end: string) => {
     return async (dispatch: any) => {
         const result = await exchangeRatesApi.getDynamics(id, start, end)
         dispatch(actions.setDynamicData(result.data))

@@ -1,6 +1,6 @@
 import React, {FC} from "react";
 import SettingOutlined from "@ant-design/icons/lib/icons/SettingOutlined";
-import {Modal, Select} from "antd";
+import {Modal, Radio, Select} from "antd";
 import { listData } from "../../types/types";
 
 type PropsType = {
@@ -8,12 +8,15 @@ type PropsType = {
     visible: boolean
     isLoading: boolean
     setSelectState: any
-    selectState: string
-    listData: listData
+    setRadioState: any
+    selectState: number
+    radioState: number
+    listData: listData,
+    handleOk: () => void
 }
 
 export const Menu: FC<PropsType> = ({toggleMenu, visible, isLoading, setSelectState,
-                                        selectState, listData}) => {
+                                        selectState, listData, handleOk, setRadioState, radioState}) => {
 
     const { Option } = Select;
 
@@ -27,13 +30,18 @@ export const Menu: FC<PropsType> = ({toggleMenu, visible, isLoading, setSelectSt
             <Modal
                 title="Параметры"
                 visible={visible}
-                // onOk={handleOk}
+                onOk={handleOk}
                 onCancel={toggleMenu}
             >
                 <Select value={selectState} style={{ width: 200 }} onChange={setSelectState}>
                     {listData.map(item => <Option value={item.Cur_ID}>{item.Cur_Name}</Option>)}
 
                 </Select>
+                <Radio.Group onChange={(e) => setRadioState(e.target.value)} value={radioState}>
+                    <Radio value={7}>7 дней</Radio>
+                    <Radio value={15}>15 дней</Radio>
+                    <Radio value={30}>30 дней</Radio>
+                </Radio.Group>
             </Modal>
         </div>
     )

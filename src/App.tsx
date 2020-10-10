@@ -13,8 +13,8 @@ const App: FC = () => {
     const dispatch = useDispatch()
     // const listData = useSelector(listDataSelector)
     useEffect(() => {
-        dispatch(getDynamicData())
         dispatch(getListData())
+        // dispatch(getDynamicData())
     }, [])
     return (
         <div className="app">
